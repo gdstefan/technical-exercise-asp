@@ -1,0 +1,24 @@
+﻿@model Dictionary<string, List<DrugUnit>>
+
+@{
+    ViewBag.Title = "Drug Units Grouped by Type";
+}
+
+<h1 class="mb-3">@ViewBag.Title</h1>
+
+<div class="row">
+    @foreach (var group in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Drug Type @group.Key</h4>
+                </div>
+                <div class="card-body">
+                    <span class="font-weight-bold">Drug Units:</span>
+                    @string.Join(", ", group.Value.Select(unit => unit.DrugUnitId))
+                </div>
+            </div>
+        </div>
+    }
+</div>

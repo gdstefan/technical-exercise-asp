@@ -1,0 +1,24 @@
+﻿@model GeorgeStefan.DataModel.RangeModel
+
+@{
+    ViewData["Title"] = "Disassociate";
+}
+
+<div class="col-md-4">
+    <h1>Disassociate</h1>
+    <form asp-action="Disassociate">
+        <div class="form-group">
+            <label asp-for="LowerBound" class="control-label">Lower Bound</label>
+            <input asp-for="LowerBound" class="form-control" />
+            <span asp-validation-for="LowerBound" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UpperBound" class="control-label">Upper Bound</label>
+            <input asp-for="UpperBound" class="form-control" />
+            <span asp-validation-for="UpperBound" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Disassociate" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

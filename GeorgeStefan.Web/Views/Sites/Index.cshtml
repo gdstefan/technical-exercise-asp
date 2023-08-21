@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Site>
+
+@{
+    ViewBag.Title = "Sites";
+}
+
+<div class="mb-3">
+    <h1>@ViewBag.Title</h1>
+    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.CountryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SiteId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SiteId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SiteId">Delete</a> |
+                    <a asp-action="RequestDrugs" asp-route-id="@item.SiteId">Request Drugs</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

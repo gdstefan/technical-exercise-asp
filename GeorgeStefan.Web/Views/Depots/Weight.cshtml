@@ -1,0 +1,38 @@
+﻿@model Dictionary<string, Dictionary<string, float>>
+
+@{
+    ViewBag.Title = "Total Weight by Drug Type for each Depot";
+}
+
+<h3 class="my-5 text-center">@ViewBag.Title</h3>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr class="text-center">
+            <th>
+                Depot Id
+            </th>
+            <th>
+                Drug Type
+            </th>
+            <th>
+                Weight (Kg)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var depot in Model)
+        {
+            <tr>
+                <td rowspan="4" class="font-weight-bold align-middle text-center">Depot @depot.Key</td>
+            </tr>
+            @foreach (var type in depot.Value)
+            {
+                <tr class="text-center">
+                    <td>@type.Key</td>
+                    <td>@type.Value</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

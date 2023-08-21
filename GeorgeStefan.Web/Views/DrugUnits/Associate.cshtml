@@ -1,0 +1,31 @@
+﻿@model GeorgeStefan.DataModel.RangeModel
+
+@{
+    ViewData["Title"] = "Associate";
+}
+
+<div class="row d-flex justify-content-between">
+    <div class="col-md-4">
+        <h1>Associate</h1>
+        <form asp-action="Associate">
+            <div class="form-group">
+                <label asp-for="LowerBound" class="control-label">Lower Bound</label>
+                <input asp-for="LowerBound" class="form-control" />
+                <span asp-validation-for="LowerBound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpperBound" class="control-label">Upper Bound</label>
+                <input asp-for="UpperBound" class="form-control" />
+                <span asp-validation-for="UpperBound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepotId" class="control-label">Depot</label>
+                <select asp-for="DepotId" class="form-control" asp-items="ViewBag.DepotNames"></select>
+                <span asp-validation-for="DepotId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Associate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

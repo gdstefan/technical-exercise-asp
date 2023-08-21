@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.LocationLinks = new List<string> { "Countries", "Depots", "Sites" };
+    ViewBag.DrugLinks = new List<string> { "DrugUnits", "DepotUnits", "DrugTypes" };
+}
+
+<div class="text-center">
+    <h4 class="mb-5 display-4">Location Information</h4>
+    <div class="row w-75 mb-4 d-flex justify-content-between mx-auto">
+        @foreach (var linkName in ViewBag.LocationLinks)
+        {
+            <a class="nav-link col-3 btn btn-outline-dark" asp-area="" asp-controller="@linkName" asp-action="Index">@linkName</a>
+        }
+    </div>
+
+    <h4 class="mb-5 display-4">Drug Information</h4>
+    <div class="row w-75 d-flex justify-content-between mx-auto">
+        @foreach (var linkName in ViewBag.DrugLinks)
+        {
+            <a class="nav-link col-3 btn btn-outline-dark" asp-area="" asp-controller="@linkName" asp-action="Index">@linkName</a>
+        }
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GeorgeStefan.DataModel.DrugUnit>
+
+@{
+    ViewBag.Title = "Drug Units";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="d-flex justify-content-between mb-3">
+    <div>
+        <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+        <a asp-action="Associate" class="btn btn-outline-success">Associate</a>
+        <a asp-action="Disassociate" class="btn btn-outline-danger">Disassociate</a>
+    </div>
+    <a asp-action="Grouped" class="btn btn-outline-primary">Group by Type</a>
+</div>
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DrugUnitId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrugType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrugUnitId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrugType.DrugTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depot.DepotName)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DrugUnitId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DrugUnitId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DrugUnitId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
